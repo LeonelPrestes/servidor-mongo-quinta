@@ -1,7 +1,7 @@
 function verificarAdmin(req, res, next) {
-    const admin = req.headers.admin;
+    const admin = req.user.usuario.tipo;
 
-    if (admin !== "true") {
+    if (admin !== "admin") {
         return res.status(403).json({
             erro: "Acesso negado. Apenas administradores podem acessar esta rota."
         });
@@ -11,4 +11,3 @@ function verificarAdmin(req, res, next) {
 }
 
 module.exports = verificarAdmin;
-
