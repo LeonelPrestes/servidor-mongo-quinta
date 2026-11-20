@@ -28,7 +28,7 @@ function authMiddleware(req, res, next) {
     try {
         const usuario = jwt.verify(token, process.env.JWT_SECRET);
 
-        req.user = {usuario};
+        req.user = usuario;
 
         next();
     } catch (error) {
